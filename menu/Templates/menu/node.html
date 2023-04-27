@@ -1,0 +1,24 @@
+{% load menu_tags %}
+
+<p>
+{{tab}}
+{% if active %} <b> {{ menu_node.name }} </b>
+{% else %} <a href='{{ menu_node.get_absolute_url }}'> {{ menu_node.name }}</a>
+{% endif %}
+</p>
+
+{% if parents %}
+    {% for parent in parents %}
+        {% draw_node parent %}
+    {% endfor %}
+{% endif %}
+
+{% if active_menu_node %}
+    {% draw_node active_menu_node True %}
+{% endif %}
+
+{% if children %}
+    {% for child in children %}
+        {% draw_node child %}
+    {% endfor %}
+{% endif %}

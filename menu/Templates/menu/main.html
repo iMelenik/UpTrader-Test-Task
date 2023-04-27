@@ -1,0 +1,11 @@
+{% block content %}
+
+{% load menu_tags %}
+
+
+<h1><a href='{% url "menus:index" %}'> Menu:</a></h1>
+{% draw_menu 'pervaya-noda' %}
+<br>
+{% draw_menu 'vtoraya-noda' %}
+
+{% endblock content %}
